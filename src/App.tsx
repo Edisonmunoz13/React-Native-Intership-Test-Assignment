@@ -1,9 +1,12 @@
-import { useState } from "react";
+import { useForm, SubmitHandler } from "react-hook-form";
+import Form from "./components/Form";
 
 function App() {
-  const [user, setUser] = useState();
-
-  return user ? <div>Profile TBD</div> : <div>Login TBD</div>;
+  return (
+    <>
+      <Form />
+    </>
+  );
 }
 
 export default App;
