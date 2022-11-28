@@ -1,6 +1,27 @@
+import { useForm } from "react-hook-form";
 import "./form.css";
+import { login } from "../api/";
 
-function Form() {
+type FormValues = {
+  email: string;
+  password: string;
+};
+
+type FormProps = {
+  onLogin: () => void;
+};
+
+function Form({ onLogin }: FormProps) {
+  const { register, handleSubmit } = useForm<FormValues>();
+  const onSubmit = async (values: FormValues) => {
+    const result = await login(values);
+    if (result.ok) {
+      onLogin();
+    } else {
+      console.log(result.error);
+    }
+  };
+
   return (
     <div>
       <section className="container">
@@ -11,10 +32,24 @@ function Form() {
             <p className="subtitle">
               Please log in to this form if you wish to pass the exam.
             </p>
-            <form id="form" className="flex-col">
-              <input className="input" type="text" placeholder="Email" />
-              <input className="input" type="text" placeholder="Password" />
-              <button className="btn">
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              id="form"
+              className="flex-col"
+            >
+              <input
+                {...register("email", { required: true })}
+                className="input"
+                type="email"
+                placeholder="Email"
+              />
+              <input
+                {...register("password", { required: true })}
+                className="input"
+                type="password"
+                placeholder="Password"
+              />
+              <button type="submit" className="btn">
                 Login
                 <img className="arrow" src="Union.svg" alt="" />
               </button>

@@ -1,0 +1,10 @@
+.container {
+  max-width: 600px;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
+  background: linear-gradient(110deg, rgb(172, 83, 255), rgb(68, 57, 255));
+  border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
