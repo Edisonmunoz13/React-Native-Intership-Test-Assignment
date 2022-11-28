@@ -92,3 +92,10 @@
 .btn .arrow {
   padding-left: 10px;
 }
+
+.button-text {
+  padding: 0;
+  font-size: medium;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
