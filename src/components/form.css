@@ -42,10 +42,34 @@
   flex-direction: column;
   border-radius: 12px;
   background-color: rgb(246, 247, 248);
-  border: none;
+  border: solid 0.1px rgb(206, 211, 218, 0.2);
 }
+
+.input:hover {
+  border: solid 3px rgb(47 123 255);
+}
+
 .input::placeholder {
   color: rgb(206, 211, 218);
+}
+
+.input:focus {
+  border: solid 3px rgb(47 123 255);
+  outline: none;
+}
+
+.error-case {
+  border: solid 3px rgb(225, 0, 48);
+  outline: none;
+}
+
+.error {
+  font-size: small;
+  display: flex;
+  align-items: flex-start;
+  margin-left: 22px;
+  color: rgb(225, 0, 48);
+  padding-top: 5px;
 }
 
 .btn {
@@ -58,8 +82,13 @@
   background-color: rgb(47 123 255);
   border: none;
   color: #fff;
+  cursor: pointer;
 }
 
-.arrow {
+.btn:hover {
+  box-shadow: 0px 4px 10px 1px rgb(135, 179, 255);
+}
+
+.btn .arrow {
   padding-left: 10px;
 }

@@ -12,7 +12,12 @@ type FormProps = {
 };
 
 function Form({ onLogin }: FormProps) {
-  const { register, handleSubmit } = useForm<FormValues>();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormValues>();
+
   const onSubmit = async (values: FormValues) => {
     const result = await login(values);
     if (result.ok) {
@@ -37,20 +42,29 @@ function Form({ onLogin }: FormProps) {
             className="flex-col"
           >
             <input
-              {...register("email", { required: true })}
-              className="input"
-              type="email"
+              {...register("email", {
+                required: true,
+                pattern: {
+                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                  message: "Incorrect format",
+                },
+              })}
+              className={`input ${errors.email ? "error-case" : "input"}`}
+              type="text"
               placeholder="Email"
             />
+            {errors.email && (
+              <label className="error">{errors.email.message} </label>
+            )}
             <input
               {...register("password", { required: true })}
-              className="input"
+              className={`input ${errors.email ? "error-case" : "input"}`}
               type="password"
               placeholder="Password"
             />
             <button type="submit" className="btn">
               Login
-              <img className="arrow" src="Union.svg" alt="" />
+              <img className="arrow" src="Union.svg" />
             </button>
           </form>
         </div>
