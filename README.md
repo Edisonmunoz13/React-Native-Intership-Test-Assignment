@@ -7,3 +7,9 @@
 npm install
 npm run dev
 ```
+deploy: https://rad-bombolone-e85b80.netlify.app
+
+credentials:
+
+Email: elon@mercdev.com
+Password: twitter
