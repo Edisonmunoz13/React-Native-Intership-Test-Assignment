@@ -1,4 +1,4 @@
-import "./layout.css";
+import "../../components/styles/layout.css";
 
 function Layout() {
   return (
