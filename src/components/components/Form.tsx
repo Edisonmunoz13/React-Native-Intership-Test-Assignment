@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
-import "./form.css";
-import { login } from "../api/";
-import { useEffect, useState } from "react";
+import "../../components/styles/form.css";
+import { login } from "../../api";
+import { useState } from "react";
 
 type FormValues = {
   email: string;

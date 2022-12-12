@@ -1,4 +1,4 @@
-import "./loggedCard.css";
+import "../../components/styles/loggedCard.css";
 
 function LoggedCard() {
   const logOut = () => {
